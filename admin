@@ -81,7 +81,7 @@ function listUsers() {
     console.log(users);
 }
 
-program.version('0.1.0');
+program.version('1.6.4');
 
 program.command('user-add')
     .description('Add local user')

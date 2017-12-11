@@ -1,0 +1,31 @@
+version: '2'
+services:
+  meemo:
+    build: .
+    environment:
+      - MONGODB_URL=mongodb://mongodb:27017/meemo
+      - ATTACHMENT_DIR=/storage
+      - LOCAL_AUTH_FILE=/app/users.json
+    volumes:
+      - ./frontend:/app/code/frontend
+      - ./src:/app/code/src
+      - ./app.js:/app/code/app.js
+      - ./admin:/app/code/admin
+      - ./.users.json:/app/users.json
+      - attachments:/storage
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongodb
+  mongodb:
+    image: mongo:latest
+    volumes:
+      - mongo_data:/data/db
+    ports:
+      - 27017:27017
+
+volumes:
+  attachments:
+    driver: local
+  mongo_data:
+    driver: local
