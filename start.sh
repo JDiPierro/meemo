@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ash
 
 set -eu
 
@@ -7,6 +7,4 @@ export ATTACHMENT_DIR=/app/data/storage
 
 mkdir -p "$ATTACHMENT_DIR"
 
-chown -R cloudron:cloudron /app/data
-
-exec /usr/local/bin/gosu cloudron:cloudron node /app/code/app.js
+exec node /app/code/app.js
