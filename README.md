@@ -1,3 +1,15 @@
+# Meemo-Minimal
+
+This image is (probably) not compatible with Cloudron and is best suited for running Meemo on your own server.
+
+Cloudron's base image weighs in at about 2GB. Starting from Alpine linux this end up at 380mb.
+
+The [docker-compose.yml](./docker-compose.yml) starts up meemo pointed at a mongodb instance and uses a local file for user management. After starting the environment you'll need to add users.
+
+There's a [Makefile](./Makefile) with targets for managing the docker-compose environment and users.
+
+---
+
 # Meemo
 
 Meemo is a personal data manager. It lets you simply input any kind of information like notes, thoughts, ideas as well as acts as a bookmarkmanager and todo list.
